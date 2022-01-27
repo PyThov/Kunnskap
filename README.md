@@ -1,10 +1,7 @@
 # BudgeThov
 
-**User** :( -> **Frontend** -*requests*-> **Backend** -*requests*-> **API** -*responds*-> **Backend** -*responds*-> **Frontend** -> **User** :)
+**User** :( -> **Frontend** -*requests*-> **API** -*requests*-> **Backend** -*responds*-> **API** -*responds*-> **Frontend** -> **User** :)
 
-## API - GoLang
-
-#### - Handle requests for information and update datastore accordingly
 
 ## Backend - GoLang
 
@@ -13,6 +10,10 @@
 #### - Format information
 
 #### - Serve information to frontend
+
+## API - GoLang
+
+#### - Handle requests for information and coordinate with backend
 
 ## Frontend - Vite(React)
 
