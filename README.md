@@ -1,4 +1,5 @@
 # BudgeThov
+A web-based platform for day-to-day budgeting needs
 
 **User** :( -> **Frontend** -*requests*-> **API** -*requests*-> **Backend** -*responds*-> **API** -*responds*-> **Frontend** -> **User** :)
 
