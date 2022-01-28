@@ -19,5 +19,6 @@ A web-based platform for day-to-day budgeting needs
 ## Frontend - Vite(React)
 
 #### - UI
+ - Should use Grommet: https://v2.grommet.io/components
 
 #### - Make requests from backend
