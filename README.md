@@ -7,9 +7,9 @@ A web-based platform for day-to-day budgeting needs
 
 ---
 
-    - Replace the modern static spreadsheets with a dynamic money management application.
-    - Track spending, saving, and goals
-    - Forecast future financials
+- Replace the modern static spreadsheets with a dynamic money management application.
+- Track spending, saving, and goals
+- Forecast future financials
 
 ## Requirements
 
