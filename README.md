@@ -41,6 +41,10 @@ A web-based platform for day-to-day budgeting needs
 
 ---
 
+### Database - *PostgreSQL*
+- Probably split into tables for each primary section
+
+
 ### Backend - *GoLang*
 - Format information and return through API
 - Update and fetch data from database/datastore
