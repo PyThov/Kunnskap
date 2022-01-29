@@ -42,6 +42,7 @@ A web-based platform for day-to-day budgeting needs
 
 ### Backend - *GoLang*
 - Format information and return through API
+- Update and fetch data from database/datastore
 
 
 ### API - *GoLang*
