@@ -22,7 +22,8 @@ A web-based platform for day-to-day budgeting needs
 ### Dashboard
 - Overview of expenses, savings, recreation
 
-### Sections - (*All sections should be optional*)
+### Sections
+(*All sections should be optional*)
 - Saving
 - Investments
 - Expenses
