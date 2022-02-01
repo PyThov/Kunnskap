@@ -3,6 +3,26 @@ A web-based platform for day-to-day budgeting needs
 
 **User** :( -> **Frontend** -*requests*-> **API** -*requests*-> **Backend** -*responds*-> **API** -*responds*-> **Frontend** -> **User** :)
 
+## Dev Setup
+Firstly, make sure that you have GoLang and NodeJS installed on your machine.
+
+Then, in whatever directory you choose...
+
+    git clone https://github.com/PyThov/BudgeThov.git
+    cd BudgeThov
+
+Then, in separate terminals for backend and frontend:
+ - Backend
+    
+        cd api
+        go run .
+
+ - Frontend
+
+        cd budgethov
+        npm i
+        npm run dev
+
 ## Goals
 
 ---
