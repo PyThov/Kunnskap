@@ -77,5 +77,5 @@ Then, in separate terminals for backend and frontend:
 
 ### Frontend - *Vite(React - Typescript)*
 - UI
-    - Should use Grommet: https://v2.grommet.io/components
+    - Should use Material UI: https://mui.com/
 - Make API requests
