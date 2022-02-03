@@ -71,6 +71,7 @@ Then, in separate terminals for backend and frontend:
 
 
 ### API - *GoLang*
+- REST
 - Handle requests for information and coordinate with backend
 - Serve information to frontend
 
