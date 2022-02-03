@@ -1,7 +1,7 @@
 
 import logo from '../logo.svg'
-import '../App.css'
-import { Button } from "grommet"
+import '../styling/App.css'
+import { Button } from "@material-ui/core"
 
 export default function Home(){
     return(    
@@ -9,7 +9,9 @@ export default function Home(){
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>Hello Vite + React!</p>
-                <Button href="/test" primary label="Test Backend" />
+                <Button color="primary" href="/test" variant="contained" >
+                    Test Backend
+                </Button>
             </header>
         </div>
     )

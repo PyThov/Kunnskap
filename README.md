@@ -19,7 +19,7 @@ Then, in separate terminals for backend and frontend:
 
  - Frontend
 
-        cd budgethov
+        cd frontend
         npm i
         npm run dev
 

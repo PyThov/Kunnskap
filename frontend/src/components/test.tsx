@@ -1,5 +1,6 @@
+import { Button } from '@material-ui/core';
 import { useEffect, useState } from 'react'
-import '../App.css'
+import '../styling/App.css'
 
 export default function Test() {
   const [error, setError] = useState(null);
@@ -23,8 +24,13 @@ export default function Test() {
   
   return (
     <div className="App-header">
-      {!isLoaded ? <div>Loading...</div> :
-      <div>{items}</div>}
+      <div className="response">
+        {!isLoaded ? <div>Loading...</div> :
+        <div>{items}</div>}
+      </div>
+      <Button color="secondary" href="/" variant="outlined">
+        Back
+      </Button>
     </div>
   )
 }

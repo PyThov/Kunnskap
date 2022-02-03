@@ -12,12 +12,10 @@
     "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
+    "@material-ui/core": "^4.12.3",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
-    "grommet": "^2.20.1",
-    "grommet-icons": "^4.7.0",
-    "styled-components": "^5.3.3",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
   }
