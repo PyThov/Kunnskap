@@ -3,4 +3,4 @@
 dist
 dist-ssr
 *.local
-package-lock
+package-lock.json
