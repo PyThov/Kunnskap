@@ -49,15 +49,16 @@ export default function Login() {
     axios.post("api/login", {
       user
     }).then((response) => {
-      if (response.data.error === "") {
+      console.log(response.data);
+      if (response.data.error) {
+        const error = response.data.error;
+        response.data.errorField === "email" ? setEmailError(error) : setPassError(error);
+      } else {
         // Store the user in localStorage (login)
         localStorage.setItem('user', JSON.stringify(response.data));
 
         // Redirect to dashboard
-        response.data.error === "" && window.location.assign("/dashboard");
-      } else {
-        const error = response.data.error;
-        response.data.errorField === "email" ? setEmailError(error) : setPassError(error);
+        window.location.assign("/dashboard");
       }
     })
   };
@@ -67,10 +68,6 @@ export default function Login() {
       handleLogin(e);
     }
   }
-
-  // React.useEffect(() => {
-  //   window.location.assign(`/dashboard/?token=${userToken}`);
-  // }, [user])
 
   return (
     <Container onKeyPress={handleKeyPress} maxWidth="sm">

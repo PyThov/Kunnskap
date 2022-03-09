@@ -73,8 +73,6 @@ export default function SignUp() {
     return true;
   }
 
-  console.log(checkForErrors() || !isFilled());
-
   const handleInput = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     
@@ -82,7 +80,7 @@ export default function SignUp() {
       ...values,
       [id]: value,
     })
-
+    
     if(!["reason", "lastName"].includes(id)) {
       if(value.length === 0){
         setErrors({
@@ -91,62 +89,52 @@ export default function SignUp() {
         })
         return;
       }
-
-      // Check for password complexity
-      if (id === "password") {
-        errors.confirmPassword = value !== values.confirmPassword && values.confirmPassword != "" ? passwordE.match : ""
-        if (value.length < 8) { // Test length
-          setErrors({
-            ...errors,
-            [id]: passwordE.chars,
-          })
-          return;
-        } else if (!/[a-z]/.test(value)){ // Test lower case
-          setErrors({
-            ...errors,
-            [id]: passwordE.lower
-          })
-          return;
-        } else if (!/[A-Z]/.test(value)){ // Test upper case
-          setErrors({
-            ...errors,
-            [id]: passwordE.upper
-          })
-          return
-        } else if (!/\d/.test(value)){ // Test number
-          setErrors({
-            ...errors,
-            [id]: passwordE.number
-          })
-          return;
-        } else if (!/\W/.test(value)){ // Test special
-          setErrors({
-            ...errors,
-            [id]: passwordE.special
-          })
-          return;
-        }
-      }
-
-      // Check for password match
-      if (id === "confirmPassword") {
-        setErrors({
-          ...errors,
-          [id]: values.password !== value ? passwordE.match : "",
-        })
-        return
-      }
     }
 
-    // If no errors... reset error field
+    let error = "";
+    switch(id) {
+      case "password":
+        if (value.length < 8) { // Test length
+          error = passwordE.chars;
+        } else if (!/[a-z]/.test(value)){ // Test lower case
+          error = passwordE.lower;
+        } else if (!/[A-Z]/.test(value)){ // Test upper case
+          error = passwordE.upper;
+        } else if (!/\d/.test(value)){ // Test number
+          error = passwordE.number;
+        } else if (!/\W/.test(value)){ // Test special
+          error = passwordE.special;
+        };
+        break;
+      case "confirmPassword":
+        if (value !== values.password) { // Check that passwords match
+          error = passwordE.match;
+        }
+        break;
+    }
+
     setErrors({
       ...errors,
-      [id]: "",
+      [id]: error,
     })
   }
 
   const handleRegister = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    axios.post("api/register", {user: values});
+    axios.post("api/register", {user: values}).then((response) => {
+      console.log(response.data);
+      if(response.data.error) {
+        setErrors({
+          ...errors,
+          [response.data.errorField]: response.data.error,
+        })
+      } else {
+        // Store the user in localStorage (login)
+        localStorage.setItem('user', JSON.stringify(response.data));
+
+        // Redirect to dashboard
+        window.location.assign("/dashboard");
+      }
+    })
   }
 
   return (
