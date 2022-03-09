@@ -1,7 +1,11 @@
 // prettier.config.js or .prettierrc.js
 module.exports = {
-  trailingComma: "es5",
+  arrowParens: "always",
+  bracketSpacing: true,
+  jsxBracketSameLine: false,
+  trailingComma: "es6",
   tabWidth: 2,
   semi: true,
   singleQuote: false,
+  useTabs: false,
 };
