@@ -26,3 +26,8 @@ export const theme = createTheme({
 export const colors = {
   green: "#2BAE66",
 };
+
+export const emptyUser = {
+    "user": "",
+    "token": "",
+};
