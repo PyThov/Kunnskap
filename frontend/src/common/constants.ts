@@ -32,4 +32,5 @@ export const colors = {
 export const emptyUser = {
     "user": "",
     "token": "",
+    "expires": new Date("01-01-1970"),
 };

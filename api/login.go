@@ -1,33 +1,29 @@
 package main
 
-import (
-	"fmt"
-)
+func verifyLogin(email string, password string) ErrorMsg {
+	// TODO: Encode password with hash key and check with DB for correct login
 
-type session struct {
-	User string `json:"user"`
-	Token string `json:"token"`
-	Expires string `json:"expires"` // Datetime??
-}
+	errMsg := ErrorMsg{}
 
-type error struct {
-	Error string `json:"error"`
-	ErrorField string `json:"errorField"`
-}
-
-func login(email: string, password: string) session {
-	fmt.Println("\nHello Login!")
-
-	var msg = session{
-		User: "user",
-		Token: "token",
-		Expires: "01/01/01:01:01:01"
+	if email != "asdf@gmail.com" {
+		errMsg.Error = "Account does not exist"
+		errMsg.ErrorField = "email"
 	}
 
-	var error = error{
-		Error: "error",
-		ErrorField: "email",
+	return errMsg
+}
+
+func login(user User) (Session, ErrorMsg) {
+	email := user.Email
+	password := user.Password // TODO: Encrypt
+
+	errMsg := verifyLogin(email, password) // Always return error message, assert on if empty later
+
+	var msg = Session{
+		User:    "user",
+		Token:   "token",
+		Expires: getExpires(),
 	}
 
-	return msg
+	return msg, errMsg
 }
