@@ -2,31 +2,58 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
 import "../styling/App.css";
+import { api } from "../common/utils";
+import axios from "axios";
+import { IUserSession } from "../common/types";
 
 export default function Test() {
-  const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState<string>("");
+  const [loginData, setLoginData] = useState<IUserSession>();
+  const [registerData, setRegisterData] = useState<IUserSession>();
+
+  const testLogin = () => {
+    axios.post(api("login"), {
+      email: "asdf@gmail.com", password: "asdfASDF1!"
+    }).then((response) => {
+      console.log(response.data);
+      const newData = {
+        user: response.data.user,
+        token: response.data.token,
+        expires: new Date(response.data.expires),
+      }
+      console.log(newData)
+      setLoginData(newData)
+      setIsLoaded(true)
+    })
+  }
+  
+  const testRegister = () => {
+    axios.post(api("register"), {
+      firstname: "noah",
+      email: "asdf@gmail.com",
+      password: "asdfASDF1!",
+    }).then((response) => {
+      console.log(response.data)
+      const newData = {
+        user: response.data.user,
+        token: response.data.token,
+        expires: new Date(response.data.expires),
+      }
+      console.log(newData)
+      setRegisterData(newData)
+    })
+  }
 
   useEffect(() => {
-    fetch("http://localhost:4000/backend")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result?.Message);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
+    // !loginData && testLogin();
+    testRegister()
+  })
+
 
   return (
     <div className="App-header">
       <div className="response">
-        {!isLoaded ? <div>Loading...</div> : <div>{items}</div>}
+        {!isLoaded ? <div>Loading...</div> : <div>Done.</div>}
       </div>
       <Button color="secondary" href="/" variant="outlined">
         Back

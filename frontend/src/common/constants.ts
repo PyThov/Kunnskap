@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
+export const API_PATH = `${process.env.NODE_ENV === "development" && "http://localhost:4000"}/api/`;
+
 export const theme = createTheme({
   palette: {
     primary: {
@@ -30,4 +32,5 @@ export const colors = {
 export const emptyUser = {
     "user": "",
     "token": "",
+    "expires": new Date("01-01-1970"),
 };

@@ -1,5 +1,9 @@
-import { emptyUser } from "./constants"
+import { emptyUser, API_PATH } from "./constants"
 import { IUserSession } from "./types"
+
+export const api = (route: string) => {
+    return `${API_PATH}${route}`;
+}
 
 export const isEmail = (email: string) => {
     return email.match(/(\S+)@(\S+)\.(\S+)/) !== null
