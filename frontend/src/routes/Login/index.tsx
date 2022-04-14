@@ -1,5 +1,5 @@
 import React from "react";
-import { theme } from "../../common/constants";
+import { API_PATH, theme } from "../../common/constants";
 import { SquareButton } from "../../common/components/SquareButton";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -46,7 +46,7 @@ export default function Login() {
     e.preventDefault();
     const user = { email, password };
 
-    axios.post("api/login", {
+    axios.post(`${API_PATH}login`, {
       user
     }).then((response) => {
       console.log(response.data);

@@ -1,5 +1,5 @@
 import React from "react";
-import { theme } from "../../common/constants";
+import { API_PATH, theme } from "../../common/constants";
 import { ArrowBack } from "@mui/icons-material";
 import { SquareButton } from "../../common/components/SquareButton";
 import Container from "@mui/material/Container";
@@ -120,7 +120,7 @@ export default function SignUp() {
   }
 
   const handleRegister = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    axios.post("api/register", {user: values}).then((response) => {
+    axios.post(`${API_PATH}register`, {user: values}).then((response) => {
       console.log(response.data);
       if(response.data.error) {
         setErrors({
